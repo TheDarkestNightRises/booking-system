@@ -47,6 +47,7 @@ public class ReservationsController : ControllerBase
         try
         {
             var createdReservation = await _reservationLogic.ReserveRoomAsync(reservation.ToReservation());
+            Console.WriteLine($"EMAIL SENT TO test@admin.com FOR CREATED Reservation WITH ID {createdReservation.Id}");
             return Ok(createdReservation.ToReservationReadDto());
         }
         catch (ArgumentException ex)
